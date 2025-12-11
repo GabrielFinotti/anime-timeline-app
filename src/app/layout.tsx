@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Anime Timeline",
-  description: "An app to organize and visualize your anime list",
+  description: "Organize sua lista de animes e crie sua linha de tempo personalizada.",
 };
 
 export default function RootLayout({

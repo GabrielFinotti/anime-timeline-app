@@ -1,0 +1,17 @@
+# Development stage
+FROM node:latest
+
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci
+
+# Copy application code
+COPY . .
+
+# Expose port (application runs on 3001)
+EXPOSE 3001
+
+# Start the development server
+CMD ["npm", "run", "dev"]
