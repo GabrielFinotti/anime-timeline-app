@@ -11,12 +11,15 @@
     "docker:up": "cp .env.production .env && docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml up --build -d",
     "docker:down": "docker compose -f docker-compose.prod.yml down",
     "docker:rebuild": "docker compose -f docker-compose.prod.yml down && docker build -f Dockerfile.prod -t anime-timeline-app . --no-cache && docker compose -f docker-compose.prod.yml up -d",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:format": "prettier --write"
   },
   "dependencies": {
     "next": "16.0.8",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "tailwind-merge": "^3.4.0",
+    "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -25,6 +28,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.8",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
