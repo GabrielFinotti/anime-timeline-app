@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "../styles/css/globals.css"
+import "../styles/css/globals.css";
 
 export const metadata: Metadata = {
   title: "Anime Timeline",

@@ -12,7 +12,7 @@
     "docker:down": "docker compose -f docker-compose.prod.yml down",
     "docker:rebuild": "docker compose -f docker-compose.prod.yml down && docker build -f Dockerfile.prod -t anime-timeline-app . --no-cache && docker compose -f docker-compose.prod.yml up -d",
     "lint": "eslint",
-    "lint:format": "prettier --write"
+    "lint:format": "prettier --write ."
   },
   "dependencies": {
     "next": "16.0.8",
