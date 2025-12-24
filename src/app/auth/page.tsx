@@ -1,7 +1,5 @@
-import AuthPage from "@/src/features/auth/ui/AuthPage";
-
 const Auth = () => {
-  return <AuthPage />;
+  return <div></div>;
 };
 
 export default Auth;
