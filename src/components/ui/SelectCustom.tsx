@@ -4,7 +4,8 @@ import { tv, VariantProps } from "tailwind-variants";
 const selectCustomStyle = tv({
   slots: {
     container: "relative mx-auto h-fit w-full text-center text-sm",
-    selectBox: "absolute max-h-0 w-full overflow-hidden transition-all duration-300 ease-in-out",
+    selectBox:
+      "absolute z-50 max-h-0 w-full overflow-hidden transition-all duration-300 ease-in-out",
     label: "p-2.5",
     option: "p-2.5",
   },

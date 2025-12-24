@@ -39,30 +39,36 @@ const animeCardSkeletonStyle = tv({
 
 const slots = animeCardSkeletonStyle();
 
-type AnimeCardSkeletonProps = VariantProps<typeof animeCardSkeletonStyle>;
+type AnimeCardSkeletonProps = VariantProps<typeof animeCardSkeletonStyle> & {
+  cardsNumber?: number;
+};
 
 const AnimeCardSkeleton = (props: AnimeCardSkeletonProps) => {
   return (
-    <div className={slots.container(props)}>
-      <span className={slots.image(props)}></span>
-      <div className={slots.groupInfo(props)}>
-        <div className={slots.primaryInfo(props)}>
-          <span className={slots.title(props)}></span>
-          <span className={slots.liked(props)}></span>
+    <>
+      {Array.from({ length: props.cardsNumber || 4 }).map((_, index) => (
+        <div key={index} className={slots.container(props)}>
+          <span className={slots.image(props)}></span>
+          <div className={slots.groupInfo(props)}>
+            <div className={slots.primaryInfo(props)}>
+              <span className={slots.title(props)}></span>
+              <span className={slots.liked(props)}></span>
+            </div>
+            <span className={slots.category(props)}></span>
+            <div className={slots.synopseGroup(props)}>
+              <span className={slots.synopse({ ...props, className: "basis-1/2" })}></span>
+              <span className={slots.synopse({ ...props, className: "basis-1/3" })}></span>
+              <span className={slots.synopse({ ...props, className: "w-full" })}></span>
+            </div>
+            <div className={slots.genreGroup(props)}>
+              <span className={slots.genre(props)}></span>
+              <span className={slots.genre(props)}></span>
+              <span className={slots.genre(props)}></span>
+            </div>
+          </div>
         </div>
-        <span className={slots.category(props)}></span>
-        <div className={slots.synopseGroup(props)}>
-          <span className={slots.synopse({ ...props, className: "basis-1/2" })}></span>
-          <span className={slots.synopse({ ...props, className: "basis-1/3" })}></span>
-          <span className={slots.synopse({ ...props, className: "w-full" })}></span>
-        </div>
-        <div className={slots.genreGroup(props)}>
-          <span className={slots.genre(props)}></span>
-          <span className={slots.genre(props)}></span>
-          <span className={slots.genre(props)}></span>
-        </div>
-      </div>
-    </div>
+      ))}
+    </>
   );
 };
 
