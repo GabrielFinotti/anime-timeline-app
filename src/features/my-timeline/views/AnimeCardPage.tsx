@@ -46,6 +46,7 @@ type AnimeCardPageProps = VariantProps<typeof animeCardPageStyles>;
 
 const AnimeCardPage = (props: AnimeCardPageProps) => {
   const [activeFilters, setActiveFilters] = useState(false);
+  const [isAdult, setIsAdult] = useState<boolean>(true);
 
   return (
     <>
@@ -70,12 +71,34 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
                 activated: activeFilters,
               })}
             >
-              <SelectCustom label="Categoria" options={["Seinen", "Shoujo", "Shounen", "Josei"]} />
-              <SelectCustom label="Gêneros" options={["Ecchi", "Harem", "Drama"]} />
-              <SelectCustom label="Status" options={["Assistindo", "Completo", "Cancelado"]} />
-              <SelectCustom label="Tipo" options={["Série", "Filme", "Mix"]} />
-              <SelectCustom label="Adulto" options={["Sim", "Não"]} />
-              <SelectCustom label="Gêneros +" options={["Hentai", "Incesto", "NTR"]} />
+              <SelectCustom
+                label="Categoria"
+                options={["Seinen", "Shoujo", "Shounen", "Josei"]}
+                onChange={() => {}}
+              />
+              <SelectCustom
+                label="Gêneros"
+                options={["Ecchi", "Harem", "Drama"]}
+                onChange={() => {}}
+              />
+              <SelectCustom
+                label="Status"
+                options={["Assistindo", "Completo", "Cancelado"]}
+                onChange={() => {}}
+              />
+              <SelectCustom label="Tipo" options={["Série", "Filme", "Mix"]} onChange={() => {}} />
+              <SelectCustom
+                label="Adulto"
+                options={["Sim", "Não"]}
+                onChange={(value) => setIsAdult(value !== "Não")}
+              />
+              {isAdult && (
+                <SelectCustom
+                  label="Gêneros +"
+                  options={["Hentai", "Incesto", "NTR"]}
+                  onChange={() => {}}
+                />
+              )}
             </div>
           </div>
         </section>

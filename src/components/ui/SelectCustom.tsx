@@ -30,12 +30,19 @@ const slots = selectCustomStyle();
 type SelectCustomProps = VariantProps<typeof selectCustomStyle> & {
   label: string;
   options: string[];
+  onChange: (option: string) => void;
 };
 
 const SelectCustom = (props: SelectCustomProps) => {
   const [options] = useState<string[]>([props.label, ...props.options]);
   const [actualOption, setActualOption] = useState<string>(props.label);
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const handleValueChange = (option: string) => {
+    setActualOption(option);
+    setIsOpened(false);
+    props.onChange(option);
+  };
 
   return (
     <div className={slots.container()}>
@@ -46,14 +53,7 @@ const SelectCustom = (props: SelectCustomProps) => {
         {options
           .filter((option) => option !== actualOption)
           .map((option, i) => (
-            <p
-              key={i}
-              className={slots.option()}
-              onClick={() => {
-                setActualOption(option);
-                setIsOpened(false);
-              }}
-            >
+            <p key={i} className={slots.option()} onClick={() => handleValueChange(option)}>
               {option}
             </p>
           ))}
