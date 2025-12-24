@@ -7,12 +7,13 @@ import { useState } from "react";
 import SearchInput from "@/src/components/ui/SearchInput";
 import SelectCustom from "@/src/components/ui/SelectCustom";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
+import ButtonMenu from "../ui/ButtonMenu";
 
 const animeCardPageStyles = tv({
   slots: {
     main: "flex flex-col gap-5 p-2.5",
     filterSection: "flex flex-col gap-3",
-    dropdownGroup: "flex flex-col gap-1",
+    dropdownGroup: "flex flex-col gap-2",
     dropdownButton: "flex w-fit cursor-pointer items-center gap-1",
     imageDropdown: "h-6 w-5 transition-all duration-300 ease-in-out",
     filterAvancedGroup:
@@ -54,7 +55,7 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
         <section className={slots.filterSection(props)}>
           <SearchInput />
           <div className={slots.dropdownGroup(props)}>
-            <div
+            <button
               className={slots.dropdownButton(props)}
               onClick={() => setActiveFilters(!activeFilters)}
             >
@@ -64,7 +65,7 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
                 alt="Ícone de seta para baixo representando expansão"
                 className={slots.imageDropdown({ ...props, activated: activeFilters })}
               />
-            </div>
+            </button>
             <div
               className={slots.filterAvancedGroup({
                 ...props,
@@ -105,6 +106,7 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
         <section className={slots.anineCardSection(props)}>
           <AnimeCardSkeleton />
         </section>
+        <ButtonMenu />
       </main>
     </>
   );
