@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/css/globals.css";
+import Navbar from "../components/common/Navbar";
 
 export const metadata: Metadata = {
   title: "Anime Timeline",
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={Nunito.className}>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

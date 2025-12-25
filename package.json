@@ -1,6 +1,7 @@
 {
   "name": "anime-timeline",
   "version": "3.0.0-dev",
+  "description": "Aplicação web responsiva para organização e acompanhamento da sua lista de animes pessoal",
   "private": true,
   "scripts": {
     "start": "next start",

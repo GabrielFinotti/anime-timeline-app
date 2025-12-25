@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+    <defs>
+        <!-- Main gradient for background -->
+        <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#262626;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Gradient for the A letter -->
+        <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Accent gradient -->
+        <linearGradient id="accentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Glow effect -->
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <!-- Enhanced glow for hover -->
+        <filter id="glowHover">
+            <feGaussianBlur stdDeviation="5" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+
+    <style>
+        /* Main logo entrance animation */
+        @keyframes fadeInScale {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Fade-in for Japanese characters */
+        @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: var(--final-opacity); }
+        }
+
+        /* Orbital rotation for all characters together */
+        @keyframes orbitRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        }
+
+        /* Counter-rotation to keep characters upright */
+        @keyframes counterRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+        }
+
+        /* Main letter with fade */
+        .main-letter {
+        animation: fadeInScale 0.8s ease-out 0.2s backwards;
+        filter: url(#glow);
+        }
+
+        /* Group that will rotate all characters together */
+        .characters-group {
+        transform-origin: 100px 100px;
+        animation: orbitRotate 20s linear 1.5s infinite;
+        }
+
+        /* Sequential character fade-in animations with counter-rotation */
+        .char-1, .char-2, .char-3, .char-4 {
+        animation: fadeIn 0.5s ease-out backwards, counterRotate 20s linear 1.5s infinite;
+        }
+
+        .char-1 {
+        --final-opacity: 0.6;
+        animation-delay: 0.4s, 1.5s;
+        }
+        .char-2 {
+        --final-opacity: 0.7;
+        animation-delay: 0.6s, 1.5s;
+        }
+        .char-3 {
+        --final-opacity: 0.65;
+        animation-delay: 0.8s, 1.5s;
+        }
+        .char-4 {
+        --final-opacity: 0.75;
+        animation-delay: 1s, 1.5s;
+        }
+    </style>
+
+    <!-- Background circle -->
+    <circle cx="100" cy="100" r="95" fill="url(#mainGradient)" />
+
+    <!-- Decorative circles (orbit style - static) -->
+    <g>
+        <circle cx="100" cy="100" r="75" fill="none" stroke="#dc2626" stroke-width="1.5"
+            opacity="0.2" />
+        <circle cx="100" cy="100" r="85" fill="none" stroke="#dc2626" stroke-width="1"
+            opacity="0.15" />
+    </g>
+
+    <!-- Katakana ア (modern geometric style) -->
+    <g class="main-letter" filter="url(#glow)">
+        <!-- Main katakana ア character -->
+        <text x="100" y="120" font-family="sans-serif" font-size="90" font-weight="bold"
+            fill="url(#letterGradient)" text-anchor="middle" dominant-baseline="middle">ア</text>
+    </g>
+
+    <!-- Japanese characters (decorative accents) - grouped for rotation -->
+    <g class="characters-group">
+        <!-- メ (me) katakana - top left area -->
+        <g transform="translate(52, 58)">
+            <text class="char-1" x="0" y="0" font-family="sans-serif" font-size="13"
+                font-weight="bold" fill="#ef4444" text-anchor="middle" dominant-baseline="middle">メ</text>
+        </g>
+
+        <!-- ニ (ni) katakana - top right area -->
+        <g transform="translate(148, 52)">
+            <text class="char-2" x="0" y="0" font-family="sans-serif" font-size="15"
+                font-weight="bold" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">ニ</text>
+        </g>
+
+        <!-- 見 (watch/see) kanji - bottom left area -->
+        <g transform="translate(45, 155)">
+            <text class="char-3" x="0" y="0" font-family="serif" font-size="17" font-weight="bold"
+                fill="#ef4444" text-anchor="middle" dominant-baseline="middle">見</text>
+        </g>
+
+        <!-- 楽 (fun/enjoyment) kanji - middle right area -->
+        <g transform="translate(142, 125)">
+            <text class="char-4" x="0" y="0" font-family="serif" font-size="14" font-weight="bold"
+                fill="#dc2626" text-anchor="middle" dominant-baseline="middle">楽</text>
+        </g>
+    </g>
+</svg>
