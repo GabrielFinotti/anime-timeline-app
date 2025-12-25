@@ -15,7 +15,7 @@ type AnimeDetailsPageProps = VariantProps<typeof animeDetailsPageStyles>;
 
 const AnimeDetailsPage = (props: AnimeDetailsPageProps) => {
   return (
-    <main className={slots.main()}>
+    <main className={slots.main(props)}>
       <AnimeCardDetailsSkeleton />
     </main>
   );
