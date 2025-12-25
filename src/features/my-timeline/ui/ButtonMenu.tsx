@@ -7,12 +7,12 @@ import { tv, VariantProps } from "tailwind-variants";
 
 const buttonMenuStyles = tv({
   slots: {
-    container: "absolute right-5 bottom-8 z-50 flex w-fit flex-col items-center gap-3",
+    container: "fixed right-5 bottom-8 z-50 flex w-fit flex-col items-center gap-3",
     buttonGroup:
       "flex max-h-0 flex-col items-center gap-2.5 overflow-hidden transition-all duration-600 ease-in-out",
-    buttonOptions: "rounded-full border border-red-400 p-2",
+    buttonOptions: "cursor-pointer rounded-full border border-red-400 p-2",
     imagesOptions: "h-5 w-5",
-    buttonMenu: "rounded-full border p-1.5",
+    buttonMenu: "cursor-pointer rounded-full border p-1.5",
     images: "relative top-1 right-0.5 h-8 w-8",
   },
   variants: {

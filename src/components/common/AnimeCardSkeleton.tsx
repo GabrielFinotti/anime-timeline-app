@@ -46,7 +46,7 @@ type AnimeCardSkeletonProps = VariantProps<typeof animeCardSkeletonStyle> & {
 const AnimeCardSkeleton = (props: AnimeCardSkeletonProps) => {
   return (
     <>
-      {Array.from({ length: props.cardsNumber || 4 }).map((_, index) => (
+      {Array.from({ length: props.cardsNumber || 6 }).map((_, index) => (
         <div key={index} className={slots.container(props)}>
           <span className={slots.image(props)}></span>
           <div className={slots.groupInfo(props)}>
