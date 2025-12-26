@@ -1,14 +1,14 @@
 import { useState } from "react";
-import Image from "next/image";
 import { tv, VariantProps } from "tailwind-variants";
-import dropdownIcon from "@/public/icons/chevron-down.svg";
+import DropdownIcon from "@/public/icons/chevron-down.svg";
 
 const dropdownStyles = tv({
   slots: {
     container: "flex flex-col gap-2",
-    button: "flex w-fit cursor-pointer items-center gap-1",
-    image: "h-6 w-5 transition-all duration-300 ease-in-out",
-    menu: "grid max-h-0 grid-cols-3 gap-2.5 overflow-hidden border-l-2 transition-all duration-500 ease-in-out",
+    button:
+      "hover:text-primary-400 flex w-fit cursor-pointer items-center gap-1 text-neutral-100 transition-colors duration-300",
+    image: "h-5 w-5 text-neutral-400 transition-all duration-300 ease-in-out",
+    menu: "border-primary-500/50 grid max-h-0 grid-cols-3 gap-2.5 overflow-hidden border-l-2 pl-3 transition-all duration-500 ease-in-out",
   },
   variants: {
     display: {
@@ -17,7 +17,7 @@ const dropdownStyles = tv({
     },
     activated: {
       true: {
-        image: "rotate-90",
+        image: "text-primary-400 rotate-90",
         menu: "max-h-screen overflow-visible",
       },
     },
@@ -38,11 +38,7 @@ const Dropdown = (props: DropdownProps) => {
     <div className={slots.container(props)}>
       <button className={slots.button(props)} onClick={() => setActivated(!activated)}>
         {props.label && <p>{props.label}</p>}
-        <Image
-          src={dropdownIcon}
-          alt="Ícone de seta para baixo representando expansão"
-          className={slots.image({ ...props, activated })}
-        />
+        <DropdownIcon className={slots.image({ ...props, activated })} />
       </button>
       <div className={slots.menu({ ...props, activated })}>{props.children}</div>
     </div>

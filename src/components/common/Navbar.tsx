@@ -1,10 +1,78 @@
-import Image from "next/image";
-import logoIcon from "../../../public/logo/logo.svg";
+"use client";
 
-const Navbar = () => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { tv, VariantProps } from "tailwind-variants";
+import LogoIcon from "../../../public/logo/logo.svg";
+import HomeIcon from "../../../public/icons/home.svg";
+import ProfileIcon from "../../../public/icons/profile.svg";
+
+const navbarStyles = tv({
+  slots: {
+    container: "p-2.5 pb-0",
+    logoGroup: "",
+    logoImage: "",
+    logoText: "",
+    linksContainer: "",
+    links: "transition-all duration-800 ease-in-out",
+    linkImages: "text-neutral-400 transition-all duration-800 ease-in-out",
+  },
+  variants: {
+    display: {
+      mobile: {
+        logoGroup: "flex items-center gap-5",
+        logoImage: "h-20 w-20 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]",
+        logoText: "text-2xl font-medium text-neutral-50",
+        linksContainer:
+          "border-dark-700 bg-dark-900/80 shadow-dark-lg fixed right-2.5 bottom-2.5 left-2.5 z-100000 flex items-center justify-around rounded-full border p-1 backdrop-blur-xs",
+        links: "rounded-full p-2",
+      },
+      desktop: {},
+    },
+    activeLink: {
+      true: {
+        links: "bg-primary-500 shadow-glow-primary",
+        linkImages: "text-neutral-50",
+      },
+      false: {},
+    },
+  },
+  defaultVariants: {
+    display: "mobile",
+  },
+});
+
+const slots = navbarStyles();
+
+type NavbarProps = VariantProps<typeof navbarStyles>;
+
+const Navbar = (props: NavbarProps) => {
+  const pathname = usePathname();
+
   return (
-    <nav>
-      <Image src={logoIcon} alt="Anime Timeline Logo" loading="eager" />
+    <nav className={slots.container(props)}>
+      <div className={slots.logoGroup(props)}>
+        <LogoIcon className={slots.logoImage(props)} />
+        <span className={slots.logoText(props)}>Anime Timeline</span>
+      </div>
+      <div className={slots.linksContainer(props)}>
+        <Link
+          href="/my-timeline"
+          className={slots.links({ ...props, activeLink: pathname === "/my-timeline" })}
+        >
+          <HomeIcon
+            className={slots.linkImages({ ...props, activeLink: pathname === "/my-timeline" })}
+          />
+        </Link>
+        <Link
+          href="/profile"
+          className={slots.links({ ...props, activeLink: pathname === "/profile" })}
+        >
+          <ProfileIcon
+            className={slots.linkImages({ ...props, activeLink: pathname === "/profile" })}
+          />
+        </Link>
+      </div>
     </nav>
   );
 };

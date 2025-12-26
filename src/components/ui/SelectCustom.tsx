@@ -4,10 +4,12 @@ import { tv, VariantProps } from "tailwind-variants";
 const selectCustomStyle = tv({
   slots: {
     container: "relative mx-auto h-fit w-full cursor-pointer text-center text-sm",
+    label:
+      "bg-dark-800/80 border-dark-600 hover:border-primary-500 rounded-lg border p-2.5 text-neutral-100 transition-colors duration-300",
     selectBox:
-      "absolute z-50 max-h-0 w-full overflow-hidden transition-all duration-300 ease-in-out",
-    label: "p-2.5",
-    option: "p-2.5",
+      "bg-dark-800 shadow-dark-md absolute z-50 mt-1 max-h-0 w-full overflow-hidden rounded-lg transition-all duration-300 ease-in-out",
+    option:
+      "hover:bg-primary-500/20 hover:text-primary-300 p-2.5 text-neutral-200 transition-all duration-200",
   },
   variants: {
     display: {
@@ -16,6 +18,7 @@ const selectCustomStyle = tv({
     },
     opened: {
       true: {
+        label: "border-primary-500",
         selectBox: "max-h-20 overflow-auto",
       },
     },

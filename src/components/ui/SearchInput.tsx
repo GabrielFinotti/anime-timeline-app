@@ -1,25 +1,23 @@
-import Image from "next/image";
 import { useState } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import searchIcon from "@/public/icons/search.svg";
+import SearchIcon from "@/public/icons/search.svg";
 
 const searchInputStyles = tv({
   slots: {
     inputGroup:
-      "m-auto flex w-3/6 items-center gap-1 rounded-xl border p-1 py-1.5 transition-all duration-400 ease-in-out",
-    searchIcon: "transition-all duration-400 ease-in-out",
-    input: "w-full text-sm outline-none",
+      "border-dark-600 bg-dark-800/80 shadow-dark-sm m-auto flex h-9.5 w-3/6 items-center gap-2 rounded-xl border p-1 py-1.5 backdrop-blur-sm transition-all duration-400 ease-in-out",
+    searchIcon: "text-neutral-400 transition-all duration-400 ease-in-out",
+    input:
+      "w-full bg-transparent text-sm text-neutral-100 outline-none placeholder:text-neutral-500 [&::-webkit-search-cancel-button]:hidden",
   },
   variants: {
     display: {
-      mobile: {
-        searchIcon: "h-7 w-7",
-      },
+      mobile: {},
     },
     focus: {
       true: {
-        inputGroup: "w-full",
-        searchIcon: "rotate-360",
+        inputGroup: "border-primary-500 shadow-glow-primary w-full",
+        searchIcon: "text-primary-400 rotate-360",
       },
     },
   },
@@ -34,11 +32,7 @@ const SearchInput = (props: SearchInputProps) => {
 
   return (
     <div className={slots.inputGroup({ ...props, focus: inputFocus })}>
-      <Image
-        src={searchIcon}
-        alt="Ícone de lupa representando pesquisa"
-        className={slots.searchIcon({ ...props, focus: inputFocus })}
-      />
+      <SearchIcon className={slots.searchIcon({ ...props, focus: inputFocus })} />
       <input
         type="search"
         name="Anime Search"

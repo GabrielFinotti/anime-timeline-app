@@ -1,4 +1,131 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* === Paleta de Cores Baseada na Logo === */
+
+  /* Primary - Vermelho vibrante da logo */
+  --color-primary-50: oklch(0.98 0.02 25);
+  --color-primary-100: oklch(0.95 0.04 25);
+  --color-primary-200: oklch(0.9 0.08 25);
+  --color-primary-300: oklch(0.82 0.14 25);
+  --color-primary-400: oklch(0.72 0.2 25);
+  --color-primary-500: oklch(0.64 0.24 25); /* Cor principal da logo */
+  --color-primary-600: oklch(0.56 0.22 25);
+  --color-primary-700: oklch(0.48 0.19 25);
+  --color-primary-800: oklch(0.4 0.15 25);
+  --color-primary-900: oklch(0.32 0.11 25);
+  --color-primary-950: oklch(0.22 0.08 25);
+
+  /* Accent - Vermelho mais vibrante para destaques */
+  --color-accent-50: oklch(0.98 0.02 20);
+  --color-accent-100: oklch(0.95 0.05 20);
+  --color-accent-200: oklch(0.9 0.1 20);
+  --color-accent-300: oklch(0.82 0.16 20);
+  --color-accent-400: oklch(0.72 0.22 20);
+  --color-accent-500: oklch(0.66 0.25 20);
+  --color-accent-600: oklch(0.58 0.23 20);
+  --color-accent-700: oklch(0.5 0.2 20);
+  --color-accent-800: oklch(0.42 0.16 20);
+  --color-accent-900: oklch(0.34 0.12 20);
+  --color-accent-950: oklch(0.24 0.09 20);
+
+  /* Dark Theme - Tons de cinza escuro */
+  --color-dark-50: oklch(0.95 0.01 270);
+  --color-dark-100: oklch(0.88 0.01 270);
+  --color-dark-200: oklch(0.75 0.01 270);
+  --color-dark-300: oklch(0.6 0.01 270);
+  --color-dark-400: oklch(0.45 0.01 270);
+  --color-dark-500: oklch(0.35 0.01 270);
+  --color-dark-600: oklch(0.25 0.01 270);
+  --color-dark-700: oklch(0.18 0.01 270);
+  --color-dark-800: oklch(0.12 0.01 270); /* Background principal */
+  --color-dark-900: oklch(0.08 0.01 270); /* Background mais escuro */
+  --color-dark-950: oklch(0.05 0.01 270); /* Preto quase puro */
+
+  /* Neutral - Tons de cinza para textos e bordas */
+  --color-neutral-50: oklch(0.98 0.005 270);
+  --color-neutral-100: oklch(0.95 0.005 270);
+  --color-neutral-200: oklch(0.88 0.005 270);
+  --color-neutral-300: oklch(0.75 0.005 270);
+  --color-neutral-400: oklch(0.6 0.005 270);
+  --color-neutral-500: oklch(0.5 0.005 270);
+  --color-neutral-600: oklch(0.4 0.005 270);
+  --color-neutral-700: oklch(0.3 0.005 270);
+  --color-neutral-800: oklch(0.22 0.005 270);
+  --color-neutral-900: oklch(0.15 0.005 270);
+  --color-neutral-950: oklch(0.1 0.005 270);
+
+  /* Success - Verde para feedbacks positivos */
+  --color-success-400: oklch(0.78 0.18 150);
+  --color-success-500: oklch(0.7 0.2 150);
+  --color-success-600: oklch(0.62 0.18 150);
+
+  /* Warning - Amarelo para alertas */
+  --color-warning-400: oklch(0.85 0.18 85);
+  --color-warning-500: oklch(0.78 0.2 85);
+  --color-warning-600: oklch(0.7 0.18 85);
+
+  /* Error - Vermelho mais saturado para erros */
+  --color-error-400: oklch(0.68 0.24 25);
+  --color-error-500: oklch(0.6 0.26 25);
+  --color-error-600: oklch(0.52 0.24 25);
+
+  /* === Shadows personalizadas para Dark Theme === */
+  --shadow-dark-sm: 0 2px 8px 0 rgb(0 0 0 / 0.3);
+  --shadow-dark-md: 0 4px 16px 0 rgb(0 0 0 / 0.4);
+  --shadow-dark-lg: 0 8px 24px 0 rgb(0 0 0 / 0.5);
+  --shadow-dark-xl: 0 12px 32px 0 rgb(0 0 0 / 0.6);
+
+  /* Shadow com glow primário */
+  --shadow-glow-primary: 0 0 20px rgb(239 68 68 / 0.3), 0 0 40px rgb(239 68 68 / 0.2);
+  --shadow-glow-accent: 0 0 20px rgb(220 38 38 / 0.3), 0 0 40px rgb(220 38 38 / 0.2);
+
+  /* === Blur para efeitos glassmorphism === */
+  --backdrop-blur-dark: blur(12px);
+  --backdrop-blur-light: blur(8px);
+
+  /* === Borders === */
+  --border-dark: oklch(0.2 0.01 270);
+  --border-light: oklch(0.3 0.01 270);
+  --border-primary: oklch(0.64 0.24 25);
+
+  /* === Gradients === */
+  --gradient-primary: linear-gradient(135deg, oklch(0.64 0.24 25) 0%, oklch(0.66 0.25 20) 100%);
+  --gradient-dark: linear-gradient(180deg, oklch(0.12 0.01 270) 0%, oklch(0.08 0.01 270) 100%);
+  --gradient-overlay: linear-gradient(180deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.7) 100%);
+}
+
+/* === Scrollbar Customizada === */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-500) var(--color-dark-800);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-dark-800);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-primary-500);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-400);
+  box-shadow: 0 0 8px rgb(239 68 68 / 0.4);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: var(--color-primary-600);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--color-dark-800);
 }
