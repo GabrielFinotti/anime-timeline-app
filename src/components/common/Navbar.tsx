@@ -9,7 +9,7 @@ import ProfileIcon from "../../../public/icons/profile.svg";
 
 const navbarStyles = tv({
   slots: {
-    container: "p-2.5 pb-0",
+    container: "p-2.5",
     logoGroup: "",
     logoImage: "",
     logoText: "",

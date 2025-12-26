@@ -1,5 +1,7 @@
+import ProfilePage from "@/src/features/profile/views/ProfilePage";
+
 const Profile = () => {
-    return <div>Profile Page</div>;
-}
+  return <ProfilePage />;
+};
 
 export default Profile;
