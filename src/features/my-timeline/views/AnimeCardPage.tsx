@@ -12,7 +12,7 @@ const animeCardPageStyles = tv({
   slots: {
     main: "flex flex-col gap-5 p-2.5",
     filterSection: "flex flex-col gap-3",
-    animeCardSection: "flex flex-col gap-2.5",
+    animeCardSection: "flex flex-col gap-5",
   },
   variants: {
     display: {
