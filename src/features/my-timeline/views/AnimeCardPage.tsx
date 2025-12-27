@@ -7,11 +7,13 @@ import SelectCustom from "@/src/components/ui/SelectCustom";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
 import ButtonMenu from "../ui/ButtonMenu";
 import Dropdown from "@/src/components/ui/Dropdown";
+import Pagination from "@/src/components/ui/Pagination";
 
 const animeCardPageStyles = tv({
   slots: {
     main: "flex flex-col gap-5 p-2.5",
     filterSection: "flex flex-col gap-3",
+    paginationSection: "",
     animeCardSection: "flex flex-col gap-5",
   },
   variants: {
@@ -67,8 +69,11 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
             )}
           </Dropdown>
         </section>
+        <section className={slots.paginationSection(props)}>
+          <Pagination totalDocs={100} />
+        </section>
         <section className={slots.animeCardSection(props)}>
-          <AnimeCardSkeleton />
+          <AnimeCardSkeleton  />
         </section>
         <ButtonMenu />
       </main>
