@@ -36,6 +36,7 @@ const eslintConfig = defineConfig([
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-explicit-any": "warn",
+      "react-hooks/set-state-in-effect": "off",
     },
   },
 ]);
