@@ -15,7 +15,7 @@ const inputStyles = tv({
     imageButton: "w-4",
   },
   variants: {
-    style: {
+    input: {
       password: {
         input: "pr-9",
       },
@@ -53,15 +53,13 @@ const Input = (props: InputProps) => {
       )}
       <div className={slots.inputGroup(props)}>
         <input
-          id={props.id}
           className={slots.input({ ...props, focus: isFocused })}
           type={showPassword ? "text" : props.type}
-          placeholder={props.placeholder}
-          value={props.value}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          {...props}
         />
-        {props.style === "password" && (
+        {props.input === "password" && (
           <button
             type="button"
             className={slots.togglePassword(props)}

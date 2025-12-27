@@ -1,7 +1,7 @@
 "use client";
 
 import { tv, VariantProps } from "tailwind-variants";
-import LoginForm from "../ui/LoginForm";
+import AuthFormToggle from "../ui/AuthFormToggle";
 
 const authPageStyles = tv({
   slots: {
@@ -25,7 +25,7 @@ type AuthPageProps = VariantProps<typeof authPageStyles>;
 const AuthPage = (props: AuthPageProps) => {
   return (
     <main className={slots.main(props)}>
-      <LoginForm />
+      <AuthFormToggle />
     </main>
   );
 };

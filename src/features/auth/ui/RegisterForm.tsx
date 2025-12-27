@@ -1,13 +1,15 @@
 import Input from "@/src/components/ui/Input";
+import Textarea from "@/src/components/ui/Textarea";
 import { tv } from "tailwind-variants";
 
-const loginFormStyle = tv({
+const registerFormStyle = tv({
   base: "border-dark-600 bg-dark-800/50 shadow-dark-lg m-auto flex w-full max-w-sm flex-col gap-6 rounded-2xl border p-8 backdrop-blur-sm",
 });
 
-const LoginForm = () => {
+const RegisterForm = () => {
   return (
-    <form className={loginFormStyle()}>
+    <form className={registerFormStyle()}>
+      <Input type="text" id="username" label="Usuário" placeholder="Escolha um nome de usuário" />
       <Input type="email" id="email" label="Email" placeholder="Insira seu email" />
       <Input
         type="password"
@@ -16,9 +18,10 @@ const LoginForm = () => {
         placeholder="Insira sua senha"
         input="password"
       />
-      <Input type="submit" value="Entrar" input="submit" />
+      <Textarea id="biography" label="Biografia" placeholder="Conte um pouco sobre você..." />
+      <Input type="submit" value="Registrar" input="submit" />
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
