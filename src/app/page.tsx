@@ -1,5 +1,7 @@
+import AuthPage from "../features/auth/views/AuthPage";
+
 const Auth = () => {
-    return <div>Auth Page</div>
-}
+  return <AuthPage />;
+};
 
 export default Auth;

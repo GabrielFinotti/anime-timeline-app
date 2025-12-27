@@ -55,24 +55,26 @@ const Navbar = (props: NavbarProps) => {
         <LogoIcon className={slots.logoImage(props)} />
         <span className={slots.logoText(props)}>Anime Timeline</span>
       </div>
-      <div className={slots.linksContainer(props)}>
-        <Link
-          href="/my-timeline"
-          className={slots.links({ ...props, activeLink: pathname === "/my-timeline" })}
-        >
-          <HomeIcon
-            className={slots.linkImages({ ...props, activeLink: pathname === "/my-timeline" })}
-          />
-        </Link>
-        <Link
-          href="/profile"
-          className={slots.links({ ...props, activeLink: pathname === "/profile" })}
-        >
-          <ProfileIcon
-            className={slots.linkImages({ ...props, activeLink: pathname === "/profile" })}
-          />
-        </Link>
-      </div>
+      {pathname !== "/" && (
+        <div className={slots.linksContainer(props)}>
+          <Link
+            href="/my-timeline"
+            className={slots.links({ ...props, activeLink: pathname === "/my-timeline" })}
+          >
+            <HomeIcon
+              className={slots.linkImages({ ...props, activeLink: pathname === "/my-timeline" })}
+            />
+          </Link>
+          <Link
+            href="/profile"
+            className={slots.links({ ...props, activeLink: pathname === "/profile" })}
+          >
+            <ProfileIcon
+              className={slots.linkImages({ ...props, activeLink: pathname === "/profile" })}
+            />
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
