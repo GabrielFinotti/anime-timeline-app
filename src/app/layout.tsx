@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/css/globals.css";
 import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 export const metadata: Metadata = {
   title: "Anime Timeline",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="bg-dark-900 min-h-screen text-neutral-100">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { tv, VariantProps } from "tailwind-variants";
+import { useState, useEffect } from "react";
 import LogoIcon from "../../../public/logo/logo.svg";
 import HomeIcon from "../../../public/icons/home.svg";
 import ProfileIcon from "../../../public/icons/profile.svg";
@@ -13,7 +14,7 @@ const navbarStyles = tv({
     logoGroup: "",
     logoImage: "",
     logoText: "",
-    linksContainer: "",
+    linksContainer: "transition-all duration-500 ease-in-out",
     links: "transition-all duration-500 ease-in-out",
     linkImages: "text-neutral-400 transition-all duration-500 ease-in-out",
   },
@@ -36,6 +37,11 @@ const navbarStyles = tv({
       },
       false: {},
     },
+    hidden: {
+      true: {
+        linksContainer: "pointer-events-none scale-x-0",
+      },
+    },
   },
   defaultVariants: {
     display: "mobile",
@@ -48,6 +54,24 @@ type NavbarProps = VariantProps<typeof navbarStyles>;
 
 const Navbar = (props: NavbarProps) => {
   const pathname = usePathname();
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHidden(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const footer = document.querySelector("footer");
+
+    if (footer) {
+      observer.observe(footer);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav className={slots.container(props)}>
@@ -56,7 +80,7 @@ const Navbar = (props: NavbarProps) => {
         <h1 className={slots.logoText(props)}>Anime Timeline</h1>
       </div>
       {pathname !== "/" && (
-        <div className={slots.linksContainer(props)}>
+        <div className={slots.linksContainer({ ...props, hidden: isHidden })}>
           <Link
             href="/my-timeline"
             className={slots.links({ ...props, activeLink: pathname === "/my-timeline" })}

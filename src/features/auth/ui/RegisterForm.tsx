@@ -1,5 +1,4 @@
 import Input from "@/src/components/ui/Input";
-import Textarea from "@/src/components/ui/Textarea";
 import { tv } from "tailwind-variants";
 
 const registerFormStyle = tv({
@@ -18,7 +17,6 @@ const RegisterForm = () => {
         placeholder="Insira sua senha"
         input="password"
       />
-      <Textarea id="biography" label="Biografia" placeholder="Conte um pouco sobre você..." />
       <Input type="submit" value="Registrar" input="submit" />
     </form>
   );
