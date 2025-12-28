@@ -11,9 +11,9 @@ import Pagination from "@/src/components/ui/Pagination";
 
 const animeCardPageStyles = tv({
   slots: {
-    main: "flex flex-col gap-5 p-2.5",
+    main: "flex flex-col gap-5",
     filterSection: "flex flex-col gap-3",
-    paginationSection: "origin-center scale-x-0 transition-all duration-700 ease-in-out",
+    paginationSection: "origin-center scale-x-0 transition-all duration-500 ease-in-out",
     animeCardSection: "flex flex-col gap-5",
   },
   variants: {

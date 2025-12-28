@@ -129,3 +129,10 @@
 *::-webkit-scrollbar-corner {
   background: var(--color-dark-800);
 }
+
+main {
+  margin-bottom: 60px;
+  padding: 10px;
+
+  min-height: calc(100vh - 160px);
+}

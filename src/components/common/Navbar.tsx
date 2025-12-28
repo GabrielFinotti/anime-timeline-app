@@ -14,8 +14,8 @@ const navbarStyles = tv({
     logoImage: "",
     logoText: "",
     linksContainer: "",
-    links: "transition-all duration-800 ease-in-out",
-    linkImages: "text-neutral-400 transition-all duration-800 ease-in-out",
+    links: "transition-all duration-500 ease-in-out",
+    linkImages: "text-neutral-400 transition-all duration-500 ease-in-out",
   },
   variants: {
     display: {

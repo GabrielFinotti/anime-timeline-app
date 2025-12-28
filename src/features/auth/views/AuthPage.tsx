@@ -1,30 +1,10 @@
 "use client";
 
-import { tv, VariantProps } from "tailwind-variants";
 import AuthFormToggle from "../ui/AuthFormToggle";
 
-const authPageStyles = tv({
-  slots: {
-    main: "p-2.5",
-  },
-  variants: {
-    display: {
-      mobile: {},
-      desktop: {},
-    },
-  },
-  defaultVariants: {
-    display: "mobile",
-  },
-});
-
-const slots = authPageStyles();
-
-type AuthPageProps = VariantProps<typeof authPageStyles>;
-
-const AuthPage = (props: AuthPageProps) => {
+const AuthPage = () => {
   return (
-    <main className={slots.main(props)}>
+    <main className="mb-0! min-h-[calc(100vh-100px)]!">
       <AuthFormToggle />
     </main>
   );

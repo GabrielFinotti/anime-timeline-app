@@ -1,11 +1,11 @@
 "use client";
 
-import ProfileCardSkeleton from "@/src/components/common/ProfileCardSkeleton";
 import { tv } from "tailwind-variants";
+import ProfileCardSkeleton from "@/src/components/common/ProfileCardSkeleton";
 
 const profilePageStyles = tv({
   slots: {
-    main: "p-2.5",
+    main: "flex flex-col gap-10",
   },
   variants: {
     display: {
@@ -23,7 +23,9 @@ const slots = profilePageStyles();
 const ProfilePage = () => {
   return (
     <main className={slots.main()}>
-      <ProfileCardSkeleton />
+      <section>
+        <ProfileCardSkeleton />
+      </section>
     </main>
   );
 };

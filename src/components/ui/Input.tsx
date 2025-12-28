@@ -6,7 +6,7 @@ import EyeClosed from "../../../public/icons/eye-closed.svg";
 const inputStyles = tv({
   slots: {
     container: "flex flex-col gap-2",
-    label: "text-sm font-semibold text-neutral-100 transition-colors duration-300",
+    label: "w-fit text-sm font-semibold text-neutral-100 transition-colors duration-300",
     inputGroup: "relative flex items-center",
     input:
       "border-dark-600 bg-dark-800/60 shadow-dark-sm hover:border-dark-500 w-full rounded-xl border p-3 text-sm text-neutral-100 transition-all duration-300 ease-in-out outline-none placeholder:text-neutral-500",
@@ -53,11 +53,11 @@ const Input = (props: InputProps) => {
       )}
       <div className={slots.inputGroup(props)}>
         <input
+          {...props}
           className={slots.input({ ...props, focus: isFocused })}
           type={showPassword ? "text" : props.type}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          {...props}
         />
         {props.input === "password" && (
           <button

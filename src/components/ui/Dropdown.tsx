@@ -4,11 +4,11 @@ import DropdownIcon from "@/public/icons/chevron-down.svg";
 
 const dropdownStyles = tv({
   slots: {
-    container: "flex flex-col gap-2",
+    container: "z-50 flex flex-col gap-2",
     button:
       "hover:text-primary-400 flex w-fit cursor-pointer items-center gap-1 text-neutral-100 transition-colors duration-300",
     image: "h-5 w-5 text-neutral-400 transition-all duration-300 ease-in-out",
-    menu: "border-primary-500/50 grid max-h-0 grid-cols-3 gap-2.5 overflow-hidden border-l-2 pl-3 transition-all duration-500 ease-in-out",
+    menu: "border-primary-500/50 grid max-h-0 origin-top scale-y-0 grid-cols-3 gap-2.5 border-l-2 pl-3 transition-all duration-400 ease-in-out",
   },
   variants: {
     display: {
@@ -18,7 +18,7 @@ const dropdownStyles = tv({
     activated: {
       true: {
         image: "text-primary-400 rotate-90",
-        menu: "max-h-screen overflow-visible",
+        menu: "max-h-screen scale-y-100",
       },
     },
   },
