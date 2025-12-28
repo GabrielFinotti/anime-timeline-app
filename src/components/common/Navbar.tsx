@@ -53,7 +53,7 @@ const Navbar = (props: NavbarProps) => {
     <nav className={slots.container(props)}>
       <div className={slots.logoGroup(props)}>
         <LogoIcon className={slots.logoImage(props)} />
-        <span className={slots.logoText(props)}>Anime Timeline</span>
+        <h1 className={slots.logoText(props)}>Anime Timeline</h1>
       </div>
       {pathname !== "/" && (
         <div className={slots.linksContainer(props)}>
