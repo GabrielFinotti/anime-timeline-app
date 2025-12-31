@@ -1,13 +1,14 @@
 "use client";
 
 import { tv, VariantProps } from "tailwind-variants";
-import { useEffect, useState } from "react";
 import SearchInput from "@/src/components/ui/SearchInput";
 import SelectCustom from "@/src/components/ui/SelectCustom";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
 import ButtonMenu from "../ui/ButtonMenu";
 import Dropdown from "@/src/components/ui/Dropdown";
 import Pagination from "@/src/components/ui/Pagination";
+import { usePaginationVisibility } from "../hooks/usePaginationVisibility";
+import { useAdultContentFilter } from "../hooks/useAdultContentFilter";
 
 const animeCardPageStyles = tv({
   slots: {
@@ -37,13 +38,9 @@ const slots = animeCardPageStyles();
 type AnimeCardPageProps = VariantProps<typeof animeCardPageStyles>;
 
 const AnimeCardPage = (props: AnimeCardPageProps) => {
-  const [isAdult, setIsAdult] = useState<boolean>(false);
-  const [loading, _setLoading] = useState<boolean>(true);
-  const [showPagination, setShowPagination] = useState(false);
-
-  useEffect(() => {
-    setShowPagination(!loading);
-  }, [loading]);
+  const loading = true;
+  const { isAdult, handleAdultChange } = useAdultContentFilter();
+  const showPagination = usePaginationVisibility(loading);
 
   return (
     <>
@@ -67,11 +64,7 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
               onChange={() => {}}
             />
             <SelectCustom label="Tipo" options={["Série", "Filme", "Mix"]} onChange={() => {}} />
-            <SelectCustom
-              label="Adulto"
-              options={["Sim", "Não"]}
-              onChange={(value) => setIsAdult(value === "Sim")}
-            />
+            <SelectCustom label="Adulto" options={["Sim", "Não"]} onChange={handleAdultChange} />
             {isAdult && (
               <SelectCustom
                 label="Gêneros +"

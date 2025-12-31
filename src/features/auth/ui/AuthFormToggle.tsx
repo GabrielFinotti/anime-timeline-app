@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { tv } from "tailwind-variants";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { useAuthModeToggle } from "../hooks/useAuthModeToggle";
 
 const authFormToggleStyles = tv({
   slots: {
@@ -28,10 +28,8 @@ const authFormToggleStyles = tv({
 
 const slots = authFormToggleStyles();
 
-type AuthMode = "login" | "register";
-
 const AuthFormToggle = () => {
-  const [mode, setMode] = useState<AuthMode>("login");
+  const { mode, handleModeChange } = useAuthModeToggle();
 
   return (
     <div className={slots.container()}>
@@ -44,13 +42,13 @@ const AuthFormToggle = () => {
           }}
         ></div>
         <span
-          onClick={() => setMode("login")}
+          onClick={() => handleModeChange("login")}
           className={slots.toggleLabel({ isActive: mode === "login" })}
         >
           Entrar
         </span>
         <span
-          onClick={() => setMode("register")}
+          onClick={() => handleModeChange("register")}
           className={slots.toggleLabel({ isActive: mode === "register" })}
         >
           Registrar

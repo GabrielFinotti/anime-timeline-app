@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 import ProfileCardSkeleton from "@/src/components/common/ProfileCardSkeleton";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
 import Pagination from "@/src/components/ui/Pagination";
-import { useEffect, useState } from "react";
+import { useProfilePaginationVisibility } from "../hooks/useProfilePaginationVisibility";
 
 const profilePageStyles = tv({
   slots: {
@@ -32,12 +32,8 @@ const profilePageStyles = tv({
 const slots = profilePageStyles();
 
 const ProfilePage = () => {
-  const [loading, _setLoading] = useState(true);
-  const [showPagination, setShowPagination] = useState(false);
-
-  useEffect(() => {
-    setShowPagination(!loading);
-  }, [loading]);
+  const loading = true;
+  const showPagination = useProfilePaginationVisibility(loading);
 
   return (
     <main className={slots.main()}>
