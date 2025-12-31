@@ -7,7 +7,7 @@ const EditProfileForm = () => {
 
   return (
     <>
-      <section>
+      <section className="sticky top-0 z-50 rounded-lg bg-black/50 pt-2.5 backdrop-blur-sm">
         <PreviewUserData
           imageUrl={formData.imageUrl}
           username={formData.username}
@@ -15,11 +15,7 @@ const EditProfileForm = () => {
         />
       </section>
       <section>
-        <UpdateUserForm
-          formData={formData}
-          onChange={updateFormData}
-          onSubmit={handleSubmit}
-        />
+        <UpdateUserForm formData={formData} onChange={updateFormData} onSubmit={handleSubmit} />
       </section>
     </>
   );
