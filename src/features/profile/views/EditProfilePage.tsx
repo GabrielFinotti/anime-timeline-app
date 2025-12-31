@@ -1,8 +1,7 @@
 "use client";
 
 import { tv } from "tailwind-variants";
-import PreviewUserData from "../ui/PreviewUserData";
-import UpdateUserForm from "../ui/UpdateUserForm";
+import EditProfileForm from "../ui/EditProfileForm";
 
 const editProfilePageStyles = tv({
   slots: {
@@ -15,12 +14,7 @@ const slots = editProfilePageStyles();
 const EditProfilePage = () => {
   return (
     <main className={slots.main()}>
-      <section>
-        <PreviewUserData />
-      </section>
-      <section>
-        <UpdateUserForm />
-      </section>
+      <EditProfileForm />
     </main>
   );
 };

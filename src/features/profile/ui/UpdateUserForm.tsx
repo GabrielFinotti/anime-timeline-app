@@ -1,8 +1,8 @@
 import FileInput from "@/src/components/ui/FileInput";
 import Input from "@/src/components/ui/Input";
 import Textarea from "@/src/components/ui/Textarea";
-import { useState } from "react";
 import { tv } from "tailwind-variants";
+import { UpdateUserFormModel } from "../models/UpdateUserFormModel";
 
 const updateFormStyle = tv({
   slots: {
@@ -16,35 +16,47 @@ const updateFormStyle = tv({
 
 const styles = updateFormStyle();
 
-type FormData = {
-  imageProfile?: File;
-  username?: string;
-  email?: string;
-  password?: string;
-  confirmPassword?: string;
-  bio?: string;
-};
+interface UpdateUserFormProps {
+  formData: UpdateUserFormModel;
+  onChange: (field: keyof UpdateUserFormModel, value: unknown) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+}
 
-const UpdateUserForm = () => {
-  const [formData, setFormData] = useState<FormData>({});
+const UpdateUserForm = ({ formData, onChange, onSubmit }: UpdateUserFormProps) => {
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    if (file) {
+      const reader = new FileReader();
 
-    const newFormData = new FormData(event.currentTarget);
+      reader.onload = (e) => {
+        onChange("imageUrl", e.target?.result);
+      };
 
-    const data = Object.fromEntries(newFormData.entries()) as FormData;
+      reader.readAsDataURL(file);
 
-    setFormData(data);
+      onChange("imageProfile", file);
+    } else {
+      onChange("imageUrl", undefined);
+      onChange("imageProfile", undefined);
+    }
+  };
 
-    console.log("Form Update:", formData);
+  const handleInputChange = (field: keyof UpdateUserFormModel, value: string) => {
+    onChange(field, value);
   };
 
   return (
-    <form className={styles.form()} onSubmit={handleSubmit}>
+    <form className={styles.form()} onSubmit={onSubmit}>
       <div className={styles.profileSection()}>
         <h3 className={styles.sectionTitle()}>Foto do Perfil</h3>
-        <FileInput type="file" id="imageProfile" name="imageProfile" label="Enviar Imagem" />
+        <FileInput
+          type="file"
+          id="imageProfile"
+          name="imageProfile"
+          label="Enviar Imagem"
+          onChange={handleImageChange}
+        />
       </div>
       <div className={styles.fieldsGroup()}>
         <h3 className={styles.sectionTitle()}>Informações Pessoais</h3>
@@ -54,6 +66,8 @@ const UpdateUserForm = () => {
           name="username"
           type="text"
           placeholder="Novo nome de usuário"
+          value={formData.username || ""}
+          onChange={(e) => handleInputChange("username", e.target.value)}
         />
         <Input
           label="Email"
@@ -61,6 +75,8 @@ const UpdateUserForm = () => {
           name="email"
           type="email"
           placeholder="novo.email@example.com"
+          value={formData.email || ""}
+          onChange={(e) => handleInputChange("email", e.target.value)}
         />
         <Input
           label="Senha"
@@ -69,6 +85,8 @@ const UpdateUserForm = () => {
           type="password"
           input="password"
           placeholder="Nova senha"
+          value={formData.password || ""}
+          onChange={(e) => handleInputChange("password", e.target.value)}
         />
         <Input
           label="Confirmar Senha"
@@ -77,11 +95,20 @@ const UpdateUserForm = () => {
           type="password"
           input="password"
           placeholder="Confirme a nova senha"
+          value={formData.confirmPassword || ""}
+          onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
         />
       </div>
       <div className={styles.fieldsGroup()}>
         <h3 className={styles.sectionTitle()}>Sobre Você</h3>
-        <Textarea label="Biografia" id="bio" name="bio" placeholder="Conte-nos sobre você..." />
+        <Textarea
+          label="Biografia"
+          id="bio"
+          name="bio"
+          placeholder="Conte-nos sobre você..."
+          value={formData.bio || ""}
+          onChange={(e) => handleInputChange("bio", e.target.value)}
+        />
       </div>
       <div className={styles.formActions()}>
         <Input type="submit" value="Atualizar Perfil" input="submit" />

@@ -25,6 +25,10 @@ const FileInput = (props: FileInputProps) => {
     } else {
       setLabel(props.label);
     }
+
+    if (props.onChange) {
+      props.onChange(event);
+    }
   };
 
   return (
