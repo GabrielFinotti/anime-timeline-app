@@ -1,5 +1,7 @@
-const Dashboard = () => {
-    return <h1>Dashboard</h1>
-}
+import { redirect } from "next/navigation";
 
-export default Dashboard
+const DashboardPage = () => {
+  redirect("/dashboard/animes");
+};
+
+export default DashboardPage;

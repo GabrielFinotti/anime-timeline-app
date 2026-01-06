@@ -6,7 +6,7 @@
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "docker:build": "docker build -f Dockerfile -t anime-timeline-app . --no-cache",
     "docker:dev": "copy .env.development .env && docker compose -f docker-compose.dev.yml down && docker compose -f docker-compose.dev.yml up --build",
     "docker:up": "copy .env.production .env && docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml up --build -d",

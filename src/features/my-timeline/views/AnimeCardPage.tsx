@@ -49,7 +49,7 @@ const AnimeCardPage = (props: AnimeCardPageProps) => {
           <SearchInput />
           <Dropdown label="Avançado">
             <SelectCustom
-              label="Categoria"
+              label="Categorias"
               options={["Seinen", "Shoujo", "Shounen", "Josei"]}
               onChange={() => {}}
             />

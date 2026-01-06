@@ -133,5 +133,5 @@
 main {
   padding: 10px 10px 20px 10px;
 
-  min-height: calc(100vh - 329px);
+  min-height: calc(100vh - 100px);
 }

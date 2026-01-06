@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import LogoIcon from "../../../public/logo/logo.svg";
 import HomeIcon from "../../../public/icons/home.svg";
 import ProfileIcon from "../../../public/icons/profile.svg";
+import DashboardIcon from "../../../public/icons/dashboard.svg";
 
 const navbarStyles = tv({
   slots: {
@@ -87,6 +88,17 @@ const Navbar = (props: NavbarProps) => {
           >
             <HomeIcon
               className={slots.linkImages({ ...props, activeLink: pathname === "/my-timeline" })}
+            />
+          </Link>
+          <Link
+            href="/dashboard"
+            className={slots.links({ ...props, activeLink: pathname.startsWith("/dashboard") })}
+          >
+            <DashboardIcon
+              className={slots.linkImages({
+                ...props,
+                activeLink: pathname.startsWith("/dashboard"),
+              })}
             />
           </Link>
           <Link
