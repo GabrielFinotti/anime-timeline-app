@@ -2,16 +2,15 @@
 
 import Dropdown from "@/src/components/ui/Dropdown";
 import SearchInput from "@/src/components/ui/SearchInput";
-import SelectCustom from "@/src/components/ui/SelectCustom";
 import { tv } from "tailwind-variants";
 import { usePaginationVisibility } from "../hooks/usePaginationVisibility";
+import SelectCustom from "@/src/components/ui/SelectCustom";
 import Pagination from "@/src/components/ui/Pagination";
-import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
 
-const dashboardAnimePageStyles = tv({
+const dashboardUserPageStyles = tv({
   slots: {
     filterSection: "flex flex-col gap-3",
-    animesSection: "flex flex-col gap-5",
+    userSection: "",
     pagination: "origin-center scale-x-0 transition-all duration-500 ease-in-out",
   },
   variants: {
@@ -30,9 +29,9 @@ const dashboardAnimePageStyles = tv({
   },
 });
 
-const slots = dashboardAnimePageStyles();
+const slots = dashboardUserPageStyles();
 
-const DashboardAnimePage = () => {
+const DashboardUserPage = () => {
   const loading = true;
   const showPagination = usePaginationVisibility(loading);
 
@@ -41,36 +40,19 @@ const DashboardAnimePage = () => {
       <section className={slots.filterSection()}>
         <SearchInput />
         <Dropdown label="Avançado">
-          <SelectCustom
-            label="Categorias"
-            options={["Shonen", "Seinen", "Shojo"]}
-            onChange={() => {}}
-          />
-          <SelectCustom
-            label="Gêneros"
-            options={["Ação", "Comédia", "Drama"]}
-            onChange={() => {}}
-          />
-          <SelectCustom
-            label="Gêneros +"
-            options={["Hentai", "Gore", "Incesto"]}
-            onChange={() => {}}
-          />
-          <SelectCustom label="Tipo" options={["Série", "Filme", "Mix"]} onChange={() => {}} />
-          <SelectCustom label="Imagens" options={["Sim", "Não"]} onChange={() => {}} />
           <SelectCustom label="Data" options={["Recente", "Antigo"]} onChange={() => {}} />
         </Dropdown>
       </section>
-      <section className={slots.animesSection()}>
+      <section className={slots.userSection()}>
         {loading ? null : (
           <div className={slots.pagination({ show: showPagination })}>
             <Pagination totalDocs={20} />
           </div>
         )}
-        <AnimeCardSkeleton isMyTimeline={false} />
+        {/* Users list */}
       </section>
     </>
   );
 };
 
-export default DashboardAnimePage;
+export default DashboardUserPage;

@@ -1,5 +1,7 @@
+import DashboardUserPage from "@/src/features/dashboard/views/DashboardUserPage";
+
 const UsersDashboard = () => {
-  return <div>Users Dashboard Page</div>;
+  return <DashboardUserPage />;
 };
 
 export default UsersDashboard;

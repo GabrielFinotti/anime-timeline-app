@@ -31,9 +31,16 @@ const animeCardSkeletonStyle = tv({
       },
       desktop: {},
     },
+    isMyTimeline: {
+      true: {},
+      false: {
+        liked: "hidden",
+      },
+    },
   },
   defaultVariants: {
     display: "mobile",
+    isMyTimeline: true,
   },
 });
 
