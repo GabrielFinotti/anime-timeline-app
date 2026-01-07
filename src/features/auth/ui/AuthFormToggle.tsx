@@ -7,11 +7,11 @@ const authFormToggleStyles = tv({
   slots: {
     container: "flex flex-col gap-6",
     toggleGroup:
-      "border-dark-600 bg-dark-800/40 relative flex items-center rounded-full border p-1 backdrop-blur-xs",
+      "border-dark-600/30 bg-dark-900/25 shadow-dark-md relative flex items-center rounded-full border p-1 backdrop-blur-md",
     toggleLabel:
       "relative z-10 flex-1 cursor-pointer px-4 py-2 text-center text-sm font-medium text-neutral-300 transition-colors duration-300",
     toggleIndicator:
-      "bg-primary-500/20 border-primary-500 absolute h-[calc(100%-8px)] rounded-full border transition-all duration-300 ease-in-out",
+      "bg-primary-500/30 border-primary-500/50 shadow-glow-primary/50 absolute h-[calc(100%-8px)] rounded-full border transition-all duration-300 ease-in-out",
     formContainer: "",
   },
   variants: {

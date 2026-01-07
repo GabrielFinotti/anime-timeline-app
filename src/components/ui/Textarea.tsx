@@ -8,13 +8,13 @@ const textareaStyle = tv({
     label: "text-sm font-semibold text-neutral-100 transition-colors duration-300",
     charCounter: "text-xs text-neutral-400 transition-colors duration-300",
     textarea:
-      "border-dark-600 bg-dark-800/60 shadow-dark-sm hover:border-dark-500 w-full resize-none rounded-xl border p-3 text-sm text-neutral-100 transition-all duration-300 ease-in-out outline-none placeholder:text-neutral-500",
+      "border-dark-600/40 bg-dark-900/40 shadow-dark-sm hover:border-dark-500/60 hover:bg-dark-900/50 w-full resize-none rounded-xl border p-3 text-sm text-neutral-100 backdrop-blur-sm transition-all duration-300 ease-in-out outline-none placeholder:text-neutral-500",
   },
   variants: {
     focus: {
       true: {
         textarea:
-          "border-primary-500 bg-dark-800/80 shadow-glow-primary placeholder:text-neutral-400",
+          "border-primary-500/60 bg-dark-900/60 shadow-glow-primary ring-primary-500/20 ring-1 placeholder:text-neutral-400",
         label: "text-neutral-50",
       },
     },
@@ -45,6 +45,10 @@ const Textarea = (props: TextareaProps) => {
     const count = value.length;
 
     setCharCount(count);
+
+    if (props.onChange) {
+      props.onChange(e);
+    }
   };
 
   return (
@@ -65,13 +69,13 @@ const Textarea = (props: TextareaProps) => {
         </span>
       </div>
       <textarea
+        {...props}
         className={slots.textarea({ ...props, focus: isFocused })}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleChange}
         rows={5}
         maxLength={maxLength}
-        {...props}
       />
     </div>
   );

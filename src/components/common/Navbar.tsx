@@ -26,14 +26,14 @@ const navbarStyles = tv({
         logoImage: "h-20 w-20 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]",
         logoText: "text-2xl font-medium text-neutral-50",
         linksContainer:
-          "border-dark-700 bg-dark-900/80 shadow-dark-lg fixed right-2.5 bottom-2.5 left-2.5 z-100000 flex items-center justify-around rounded-full border p-1 backdrop-blur-xs max-w-80 m-auto",
+          "border-dark-700/40 bg-dark-900/30 shadow-dark-xl ring-dark-600/20 fixed right-2.5 bottom-2.5 left-2.5 z-100000 m-auto flex max-w-80 items-center justify-around rounded-full border p-1 ring-1 backdrop-blur-md",
         links: "rounded-full p-2",
       },
       desktop: {},
     },
     activeLink: {
       true: {
-        links: "bg-primary-500 shadow-glow-primary",
+        links: "bg-primary-500 shadow-glow-primary scale-110",
         linkImages: "text-neutral-50",
       },
       false: {},
@@ -75,13 +75,13 @@ const Navbar = (props: NavbarProps) => {
   }, []);
 
   return (
-    <nav className={slots.container(props)}>
+    <header className={slots.container(props)}>
       <div className={slots.logoGroup(props)}>
         <LogoIcon className={slots.logoImage(props)} />
         <h1 className={slots.logoText(props)}>Anime Timeline</h1>
       </div>
       {pathname !== "/" && (
-        <div className={slots.linksContainer({ ...props, hidden: isHidden })}>
+        <nav className={slots.linksContainer({ ...props, hidden: isHidden })}>
           <Link
             href="/my-timeline"
             className={slots.links({ ...props, activeLink: pathname === "/my-timeline" })}
@@ -109,9 +109,9 @@ const Navbar = (props: NavbarProps) => {
               className={slots.linkImages({ ...props, activeLink: pathname === "/profile" })}
             />
           </Link>
-        </div>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 };
 

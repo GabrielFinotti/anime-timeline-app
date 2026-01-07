@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 const dashboardNavbarStyles = tv({
   slots: {
-    nav: "bg-dark-800/50 border-dark-600/60 sticky top-4 z-10000 mx-auto flex w-fit flex-row gap-2 rounded-full border p-1 shadow-lg shadow-black/20 backdrop-blur-md",
+    nav: "bg-dark-900/30 border-dark-600/40 shadow-dark-xl ring-dark-600/20 sticky top-4 z-10000 mx-auto flex w-fit flex-row gap-2 rounded-full border p-1 ring-1 backdrop-blur-md",
     linksContainer: "relative flex flex-row gap-1",
     toggleIndicator:
       "bg-primary-500/25 border-primary-500/60 shadow-primary-500/20 absolute h-full rounded-full border shadow-lg transition-all duration-300 ease-in-out",

@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 const fileInputStyles = tv({
   slots: {
     label:
-      "bg-primary-500 hover:bg-primary-400 active:bg-primary-600 shadow-dark-md hover:shadow-glow-primary block cursor-pointer rounded-xl p-3 text-center font-semibold text-neutral-50 transition-all duration-300",
+      "bg-primary-500 hover:bg-primary-400 active:bg-primary-600 shadow-dark-md hover:shadow-glow-primary ring-primary-400/30 block cursor-pointer rounded-xl p-3 text-center font-semibold text-neutral-50 ring-1 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]",
     input: "hidden",
   },
 });

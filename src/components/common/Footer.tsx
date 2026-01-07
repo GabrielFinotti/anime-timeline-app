@@ -6,7 +6,8 @@ import { SocialLinks } from "./SocialLinks";
 
 const footerStyles = tv({
   slots: {
-    container: "flex flex-col items-center gap-4 border-t border-neutral-600 p-2.5",
+    container:
+      "bg-dark-900/20 flex flex-col items-center gap-4 border-t border-neutral-600/40 p-2.5 backdrop-blur-sm",
     logoSection: "flex flex-col items-center gap-2",
     logo: "h-16 w-16 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]",
     appName: "text-lg font-semibold text-neutral-100",

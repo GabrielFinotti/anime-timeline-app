@@ -5,9 +5,9 @@ const selectCustomStyle = tv({
   slots: {
     container: "relative mx-auto h-fit w-full cursor-pointer text-center text-sm",
     label:
-      "bg-dark-800/80 border-dark-600 hover:border-primary-500 rounded-lg border p-2.5 text-neutral-100 transition-colors duration-300",
+      "bg-dark-900/40 border-dark-600/40 hover:border-primary-500/60 rounded-lg border p-2.5 text-neutral-100 backdrop-blur-sm transition-colors duration-300",
     selectBox:
-      "bg-dark-800 shadow-dark-md absolute z-50 mt-1 max-h-0 w-full overflow-hidden rounded-lg transition-all duration-300 ease-in-out",
+      "bg-dark-900/90 shadow-dark-xl border-dark-600/40 absolute z-50 mt-1 max-h-0 w-full overflow-hidden rounded-lg backdrop-blur-md transition-all duration-300 ease-in-out",
     option:
       "hover:bg-primary-500/20 hover:text-primary-300 p-2.5 text-neutral-200 transition-all duration-200",
   },

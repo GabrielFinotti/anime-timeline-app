@@ -5,7 +5,7 @@ import SearchIcon from "@/public/icons/search.svg";
 const searchInputStyles = tv({
   slots: {
     inputGroup:
-      "border-dark-600 bg-dark-800/80 shadow-dark-sm m-auto flex h-9.5 w-3/6 items-center gap-2 rounded-xl border p-1 py-1.5 backdrop-blur-sm transition-all duration-400 ease-in-out",
+      "border-dark-600/40 bg-dark-900/30 shadow-dark-md ring-dark-600/20 m-auto flex h-9.5 w-3/6 items-center gap-2 rounded-xl border p-1 py-1.5 ring-1 backdrop-blur-md transition-all duration-400 ease-in-out",
     searchIcon: "text-neutral-400 transition-all duration-400 ease-in-out",
     input:
       "w-full bg-transparent text-sm text-neutral-100 outline-none placeholder:text-neutral-500 [&::-webkit-search-cancel-button]:hidden",
@@ -16,7 +16,7 @@ const searchInputStyles = tv({
     },
     focus: {
       true: {
-        inputGroup: "border-primary-500 shadow-glow-primary w-full",
+        inputGroup: "border-primary-500/60 shadow-glow-primary ring-primary-500/20 w-full",
         searchIcon: "text-primary-400 rotate-360",
       },
     },

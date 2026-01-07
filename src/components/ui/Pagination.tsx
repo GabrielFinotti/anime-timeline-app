@@ -6,13 +6,13 @@ const paginationStyles = tv({
   slots: {
     container: "m-auto flex w-fit items-center justify-center gap-2",
     navButton:
-      "hover:bg-dark-700 hover:text-primary-500 flex cursor-pointer items-center justify-center rounded-lg p-2 text-neutral-400 transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-neutral-400",
+      "hover:bg-dark-700/50 hover:text-primary-500 flex cursor-pointer items-center justify-center rounded-lg p-2 text-neutral-400 backdrop-blur-sm transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-neutral-400",
     navIcon: "h-5 w-5 transition-transform duration-300",
     pageContainer: "flex items-center gap-1.5",
     pageButton:
-      "hover:bg-dark-700 hover:text-primary-400 min-w-10 cursor-pointer rounded-lg px-2.5 py-1.5 text-sm font-medium text-neutral-300 transition-all duration-300",
+      "hover:bg-dark-700/50 hover:text-primary-400 min-w-10 cursor-pointer rounded-lg px-2.5 py-1.5 text-sm font-medium text-neutral-300 backdrop-blur-sm transition-all duration-300",
     pageButtonActive:
-      "bg-primary-500 shadow-glow-primary hover:bg-primary-600 text-neutral-100 hover:text-neutral-100",
+      "bg-primary-500 shadow-glow-primary hover:bg-primary-600 scale-110 text-neutral-100 hover:text-neutral-100",
     pageSeparator: "px-1 text-neutral-500",
   },
 });
