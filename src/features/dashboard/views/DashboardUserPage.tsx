@@ -1,16 +1,17 @@
 "use client";
 
-import Dropdown from "@/src/components/ui/Dropdown";
-import SearchInput from "@/src/components/ui/SearchInput";
 import { tv } from "tailwind-variants";
 import { usePaginationVisibility } from "../hooks/usePaginationVisibility";
+import Dropdown from "@/src/components/ui/Dropdown";
+import SearchInput from "@/src/components/ui/SearchInput";
 import SelectCustom from "@/src/components/ui/SelectCustom";
 import Pagination from "@/src/components/ui/Pagination";
+import UserCardSkeleton from "@/src/components/common/UserCardSkeleton";
 
 const dashboardUserPageStyles = tv({
   slots: {
     filterSection: "flex flex-col gap-3",
-    userSection: "",
+    userSection: "flex flex-col gap-5",
     pagination: "origin-center scale-x-0 transition-all duration-500 ease-in-out",
   },
   variants: {
@@ -49,7 +50,7 @@ const DashboardUserPage = () => {
             <Pagination totalDocs={20} />
           </div>
         )}
-        {/* Users list */}
+        <UserCardSkeleton />
       </section>
     </>
   );

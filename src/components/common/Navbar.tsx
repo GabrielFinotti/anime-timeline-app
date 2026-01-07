@@ -26,7 +26,7 @@ const navbarStyles = tv({
         logoImage: "h-20 w-20 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]",
         logoText: "text-2xl font-medium text-neutral-50",
         linksContainer:
-          "border-dark-700 bg-dark-900/80 shadow-dark-lg fixed right-2.5 bottom-2.5 left-2.5 z-100000 flex items-center justify-around rounded-full border p-1 backdrop-blur-xs",
+          "border-dark-700 bg-dark-900/80 shadow-dark-lg fixed right-2.5 bottom-2.5 left-2.5 z-100000 flex items-center justify-around rounded-full border p-1 backdrop-blur-xs max-w-80 m-auto",
         links: "rounded-full p-2",
       },
       desktop: {},
