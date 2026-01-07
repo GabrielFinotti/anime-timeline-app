@@ -33,9 +33,13 @@ const slots = dashboardNavbarStyles();
 
 const DashboardNavbar = () => {
   const pathname = usePathname();
-
+  const detailPagePattern = /^\/dashboard\/(animes|users)\/[^/]+/;
   const isAnimesActive = pathname === "/dashboard/animes";
   const isUsersActive = pathname === "/dashboard/users";
+
+  if (detailPagePattern.test(pathname)) {
+    return null;
+  }
 
   return (
     <nav className={slots.nav()}>
