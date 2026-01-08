@@ -4,7 +4,7 @@ import { tv, VariantProps } from "tailwind-variants";
 import SearchInput from "@/src/components/ui/SearchInput";
 import SelectCustom from "@/src/components/ui/SelectCustom";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
-import ButtonMenu from "../ui/ButtonMenu";
+import ButtonMenu from "@/src/components/ui/ButtonMenu";
 import Dropdown from "@/src/components/ui/Dropdown";
 import Pagination from "@/src/components/ui/Pagination";
 import { usePaginationVisibility } from "../hooks/usePaginationVisibility";

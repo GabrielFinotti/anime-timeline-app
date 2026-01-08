@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={Nunito.className}>
-      <body className="bg-dark-900 min-h-screen text-neutral-100">
+      <body className="min-h-screen text-neutral-100">
         <Navbar />
         {children}
         <Footer />

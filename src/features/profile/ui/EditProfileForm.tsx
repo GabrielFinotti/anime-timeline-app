@@ -7,7 +7,7 @@ const EditProfileForm = () => {
 
   return (
     <>
-      <section className="sticky top-0 z-50 rounded-lg bg-black/50 pt-2.5 backdrop-blur-sm">
+      <section className="sticky top-2.5 z-50 rounded-lg bg-black/50 backdrop-blur-sm">
         <PreviewUserData
           imageUrl={formData.imageUrl}
           username={formData.username}

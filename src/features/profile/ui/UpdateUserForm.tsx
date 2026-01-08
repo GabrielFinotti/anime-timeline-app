@@ -7,7 +7,7 @@ import { UpdateUserFormModel } from "../models/UpdateUserFormModel";
 const updateFormStyle = tv({
   slots: {
     form: "border-dark-600/40 bg-dark-900/30 shadow-dark-xl ring-primary-500/10 m-auto flex w-full max-w-lg flex-col gap-6 rounded-2xl border p-8 ring-1 backdrop-blur-md",
-    profileSection: "border-dark-600/30 flex flex-col gap-4 border-b pb-6",
+    profileSection: "border-accent-600/70 flex flex-col gap-4 border-b pb-6",
     sectionTitle: "text-xs font-semibold tracking-wider text-neutral-400 uppercase",
     fieldsGroup: "flex flex-col gap-4",
     formActions: "",

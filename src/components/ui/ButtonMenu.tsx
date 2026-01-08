@@ -27,15 +27,25 @@ const buttonMenuStyles = tv({
         buttonMenu: "rotate-45",
       },
     },
+    isMyTimeline: {
+      true: {},
+      false: {
+        buttonOptions: "last:hidden",
+      },
+    },
   },
   defaultVariants: {
     display: "mobile",
+    isMyTimeline: true,
   },
 });
 
 const slots = buttonMenuStyles();
 
-type ButtonMenuProps = VariantProps<typeof buttonMenuStyles>;
+type ButtonMenuProps = VariantProps<typeof buttonMenuStyles> & {
+  onClickAdd?: () => void;
+  onClickDelete?: () => void;
+};
 
 const ButtonMenu = (props: ButtonMenuProps) => {
   const [opened, setOpened] = useState(false);
@@ -43,10 +53,16 @@ const ButtonMenu = (props: ButtonMenuProps) => {
   return (
     <div className={slots.container(props)}>
       <div className={slots.buttonGroup({ ...props, opened })}>
-        <button className={slots.buttonOptions(props)}>
+        <button
+          className={slots.buttonOptions(props)}
+          onClick={() => {
+            props.onClickAdd?.();
+            setOpened(!opened);
+          }}
+        >
           <AddIcon className={slots.imagesOptions(props)} />
         </button>
-        <button className={slots.buttonOptions(props)}>
+        <button className={slots.buttonOptions(props)} onClick={props.onClickDelete}>
           <DeleteIcon className={slots.imagesOptions(props)} />
         </button>
       </div>

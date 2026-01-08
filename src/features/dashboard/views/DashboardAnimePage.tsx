@@ -1,12 +1,15 @@
 "use client";
 
+import { useState } from "react";
+import { tv } from "tailwind-variants";
+import { usePaginationVisibility } from "../hooks/usePaginationVisibility";
 import Dropdown from "@/src/components/ui/Dropdown";
 import SearchInput from "@/src/components/ui/SearchInput";
 import SelectCustom from "@/src/components/ui/SelectCustom";
-import { tv } from "tailwind-variants";
-import { usePaginationVisibility } from "../hooks/usePaginationVisibility";
 import Pagination from "@/src/components/ui/Pagination";
 import AnimeCardSkeleton from "@/src/components/common/AnimeCardSkeleton";
+import ButtonMenu from "@/src/components/ui/ButtonMenu";
+import CreateAnimeModal from "../ui/CreateAnimeModal";
 
 const dashboardAnimePageStyles = tv({
   slots: {
@@ -35,6 +38,7 @@ const slots = dashboardAnimePageStyles();
 const DashboardAnimePage = () => {
   const loading = true;
   const showPagination = usePaginationVisibility(loading);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -69,6 +73,8 @@ const DashboardAnimePage = () => {
         )}
         <AnimeCardSkeleton isMyTimeline={false} />
       </section>
+      <ButtonMenu isMyTimeline={false} onClickAdd={() => setIsOpen(true)} />
+      {isOpen && <CreateAnimeModal onClose={() => setIsOpen(false)} />}
     </>
   );
 };

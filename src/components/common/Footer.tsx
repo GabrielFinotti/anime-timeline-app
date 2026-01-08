@@ -7,12 +7,14 @@ import { SocialLinks } from "./SocialLinks";
 const footerStyles = tv({
   slots: {
     container:
-      "bg-dark-900/20 flex flex-col items-center gap-4 border-t border-neutral-600/40 p-2.5 backdrop-blur-sm",
-    logoSection: "flex flex-col items-center gap-2",
-    logo: "h-16 w-16 drop-shadow-[0_0_8px_rgba(239,68,68,0.3)]",
-    appName: "text-lg font-semibold text-neutral-100",
-    copyright: "text-center text-sm text-neutral-500",
-    message: "text-xs text-neutral-600",
+      "bg-dark-950/50 flex flex-col items-center gap-5 px-4 py-6 shadow-[0_-4px_20px_rgba(0,0,0,0.2)] backdrop-blur-xl",
+    logoSection: "flex flex-col items-center gap-3",
+    logo: "h-14 w-14 cursor-pointer drop-shadow-[0_0_12px_rgba(239,68,68,0.4)] transition-all duration-300 hover:drop-shadow-[0_0_18px_rgba(239,68,68,0.6)]",
+    appName:
+      "text-lg font-semibold tracking-wide text-neutral-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]",
+    copyright: "text-center text-sm font-medium text-neutral-400",
+    message:
+      "hover:text-primary-400 cursor-default text-xs text-neutral-500 italic transition-colors duration-300",
   },
 });
 
